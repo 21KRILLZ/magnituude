@@ -1,0 +1,106 @@
+local USER = game.Players.LocalPlayer.Name
+                game:GetService("UserInputService").InputBegan:Connect(function(K,g)
+                    if g then return end
+                    if K.KeyCode == Enum.KeyCode.P then
+                        local player = game:GetService("Players").LocalPlayer
+local mouse = player:GetMouse()
+
+local Balls = game:GetService("Workspace").TPSSystem
+
+_G.Enabled = true
+_G.BallName = "TPS"
+
+_G.Magnitude = 10
+
+function Script()
+      if _G.Enabled == false then return end
+local character = player.Character
+
+local leg = character:FindFirstChild("Right Leg")
+local left = character:FindFirstChild("Left Leg")
+local arm = character:FindFirstChild("Right Arm")
+local torso = character:FindFirstChild("Torso")
+local head = character:FindFirstChild("Head")
+
+local BodyParts = {
+    leg,
+    left,
+    arm,
+    torso,
+    head
+}
+
+
+    for i, balls in pairs(Balls:GetChildren()) do
+if balls.Name == _G.BallName then
+        if (balls.Position - torso.Position).magnitude <= _G.Magnitude then
+for i, limbs in pairs(BodyParts) do
+    firetouchinterest(limbs, balls, 0)
+    firetouchinterest(balls, limbs, 0)
+    task.wait()
+    firetouchinterest(limbs, balls, 1)
+    firetouchinterest(balls, limbs, 1)
+end
+end
+end
+end
+end
+
+mouse.Button1Down:Connect(Script)
+mouse.KeyDown:Connect(Script)
+mouse.KeyUp:Connect(Script)
+                    end
+                end)
+local USER = game.Players.LocalPlayer.Name
+                game:GetService("UserInputService").InputBegan:Connect(function(K,g)
+                    if g then return end
+                    if K.KeyCode == Enum.KeyCode.M then
+                        local player = game:GetService("Players").LocalPlayer
+local mouse = player:GetMouse()
+
+local Balls = game:GetService("Workspace").TPSSystem
+
+_G.Enabled = false
+_G.BallName = "TPS"
+
+_G.Magnitude = 10
+
+function Script()
+      if _G.Enabled == false then return end
+local character = player.Character
+
+local leg = character:FindFirstChild("Right Leg")
+local left = character:FindFirstChild("Left Leg")
+local arm = character:FindFirstChild("Right Arm")
+local torso = character:FindFirstChild("Torso")
+local head = character:FindFirstChild("Head")
+
+local BodyParts = {
+    leg,
+    left,
+    arm,
+    torso,
+    head
+}
+
+
+    for i, balls in pairs(Balls:GetChildren()) do
+if balls.Name == _G.BallName then
+        if (balls.Position - torso.Position).magnitude <= _G.Magnitude then
+for i, limbs in pairs(BodyParts) do
+    firetouchinterest(limbs, balls, 0)
+    firetouchinterest(balls, limbs, 0)
+    task.wait()
+    firetouchinterest(limbs, balls, 1)
+    firetouchinterest(balls, limbs, 1)
+end
+end
+end
+end
+end
+
+mouse.Button1Down:Connect(Script)
+mouse.KeyDown:Connect(Script)
+mouse.KeyUp:Connect(Script)
+                    end
+                end)
